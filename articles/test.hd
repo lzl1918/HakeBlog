@@ -1,2 +1,77 @@
+#t The first section
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+
+#s SubSection
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+
+#t The second section
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+#p test inline content. we programmers like codes like {#c hello world}. 
+#a while we don't like {#b bold text}. also, the {#a[href=http://www.baidu.com] link} is not supposed to be right in the document.
+
+#s come a list
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+
+#ul
+    #l[caption] list item content
+    #l[caption] list item content
+    #l list item content without caption
+    #g a complicated item
+        #p the content here is multiline,
+        #p but may be displayed in the single line.
+    #
+    #g
+        #p the content here is multiline,
+        #p but may be displayed in the single line.
+    #
+#
+
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+
+#n
+let's see a hint here.
+#
+and the last step is to see the pictures and tables
+#s what is the picture below
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
+here is some random content. and the way you go is not dangerous.
+#a you can see the monitor in the upper corner.
 #img[alt=test][test.png] test image
-#p it is a utf8 file
+#p it is a utf8 file, and below we will add a table
+#tab
+    #th[0] index
+    #ths[1]
+        #p name
+        #p location
+    #
+    #td[0][0] 1
+    #tds[0][1]
+        #p hake
+        #p bit
+    #
+#
+#p notice that the content inside every cell of the created table is not designed for large text blocks.
+#a and if you need to express the idea, please {#img[src=test.png]} use the sections. 
+so what will happen if we set a code block here?
+#c[lang=C#][brush=CSharp]
+public static int main(int a, int b) {
+    return a + b;
+}
+#
+at last it is the end of this document.
