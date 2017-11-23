@@ -71,16 +71,28 @@ here is some random content. and the way you go is not dangerous.
 so what will happen if we set a code block here?
 #c[lang=C#][brush=CSharp]
 public static int main(int a, int b) {
-    return a + b;
-}
-#
-#c[lang=C#][brush=csharp]
-public static int main(int a, int b) {
-    return a + b;
-}
-#
-#c[lang=C++][brush=cpp]
-int main(int a, int b) {
+    GitHubSourceConfig config = new GitHubSourceConfig(repos, owner, articlesPath, resourcesPath);
+    if (!config.ResourcesRelativePath.StartsWith("http://") &&
+        !config.ResourcesRelativePath.StartsWith("https://"))
+        config.ResourcesRelativePath = GitHubAPI.GeneratesResourcePath(config);
+    GitHubAPI.ConfigureSource(config);
+
+    base.OnModelCreating(modelBuilder);
+    modelBuilder.Entity<BlogItem>().HasIndex(nameof(BlogItem.AccessPath)).IsUnique(true);
+    modelBuilder.Entity<BlogTag>().HasIndex(nameof(BlogTag.Name)).IsUnique(true);
+    modelBuilder.Entity<BlogItemTag>().HasKey(nameof(BlogItemTag.BlogItemId), nameof(BlogItemTag.BlogTagId));
+    modelBuilder.Entity<BlogItemTag>()
+        .HasOne(tag => tag.BlogItem)
+        .WithMany(item => item.Tags)
+        .HasForeignKey(tag => tag.BlogItemId)
+        .IsRequired();
+    modelBuilder.Entity<BlogItemTag>()
+        .HasOne(tag => tag.BlogTag)
+        .WithMany(tag => tag.Items)
+        .HasForeignKey(tag => tag.BlogTagId)
+        .IsRequired();
+
+    return services.AddSingleton<IGitHubSourceConfig>(config);
     return a + b;
 }
 #
