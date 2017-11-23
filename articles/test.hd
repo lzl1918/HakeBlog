@@ -74,4 +74,14 @@ public static int main(int a, int b) {
     return a + b;
 }
 #
+#c[lang=C#][brush=csharp]
+public static int main(int a, int b) {
+    return a + b;
+}
+#
+#c[lang=C++][brush=cpp]
+int main(int a, int b) {
+    return a + b;
+}
+#
 at last it is the end of this document.
